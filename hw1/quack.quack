@@ -1,0 +1,7 @@
+Woosuk Lee
+APCS2 pd8
+HW01 -- ... We Go!
+2018 - 01 - 30
+
+My duckie and I have been through a lot this past few months. Momo was always there for me when I was having trouble with my homeworks. Expecially during the final project, I have been suffering from stress, but Momo and my teammates helped me get through it!
+I would sometimes watch some CS related videos online with Momo, one of which was the video for sorting algorithms (bubblesort vs mergesort, mergesort vs quicksort). I had a great deal of discussion with Momo about these different types of sorting algorithms. Mergesort and quicksort were relatively fast, but depending on their case scenarios, one would beat the other. For instance, choosing a "bad pivot" (meaning, there is an unbalanced number of items on either side of the pivot) in quicksort will create the worst case of O(n^2) (which I am not 100% sure). This "adventure" I had with Momo further deepened my interest in CS!
