@@ -1,0 +1,55 @@
+Woosuk Lee
+APCS2 pd8
+HW09 -- Yaaasss Queens
+2018-02-27
+
+2*2
+This is obviously an impossible case. Once a queen is placed, no other ones can be placed because that queen can move to all the other blocks.
+
+3*3
+This is also an impossible case. Only 2 can be placed at maximum. 
+
+4*4
+There are two possible ways that this works.
+
+X X O X
+O X X X
+X X X O
+X O X X
+
+where O is the queen and X is empty space.
+
+OR
+
+X O X X
+X X X O
+O X X X
+X X O X
+
+It has a nice pattern (like a path that a knight took around the chess board)
+
+5*5
+One can think of 5*5 as a 4*4 with just a row and a column added to it. There are 6 different ways to arrange 5 queens in a 5*5 space.
+
+X X O X X
+O X X X X
+X X X O X
+X O X X X
+X X X X O  <--------------- rotate this 90 degrees (4 total so far)
+
+X X X O X
+O X X X X
+X X O X X
+X X X X O
+X O X X X  <----- Mirror image to get a second one (2 here, so 6 total)
+
+The knight-path pattern appears again here in a different variation. The knight moves in a 2*3 L-shape, but here it moves in a 2*4 L shape with a queen on the center.
+
+6*6
+This can likewise be thought of as a 5*5 with a column and row added. Unfortunately, it is impossible to place 6 queens here because adding an extra row and a column would not yield any free space to place an extra queen.
+
+7*7
+The 7*7 also seemed impossible through many trials.
+
+8*8
+This also does not seem possible.

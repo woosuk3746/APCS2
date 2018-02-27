@@ -15,7 +15,7 @@ public class Resrever{
     }
     
     /*
-    I think that making a logarithmic method for string reverse is not possible to implement. According to the QAF post, everyone seemed to have been trying use the merge method in order to reverse the string. According to Jerry, the splitting itself has a constant runtime, but it is done approximately n/2 number of times, so it will result in the total splitting runtime of O(n) which already fails the mission of making a O(log n) runtime implementation. Reversing a string completely requires checking all characters one way or another. Having a runtime of O(log n) in a code that reverses the characters of the string seems impractical because it means that not every character is checked for its correct position, which may not guarantee the complete functionality of the code.
+    I think that making a logarithmic method for string reverse is not possible to implement. According to the QAF post, everyone seemed to have been trying use the merge method in order to reverse the string. According to Jerry, the splitting itself has a constant runtime, but it is done approximately n/2 number of times, so it will result in the total splitting runtime of O(n) which already fails the mission of making a O(log n) runtime implementation. Reversing a string completely requires checking all characters one way or another. Having a runtime of O(log n) in a code that reverses the characters of the string seems impractical because it means that not every character is checked for its correct position, which may not guarantee the complete functionality of the code. It may work in a very lucky case for small n, but it is unlikely to work for a very big n.
     */
     
     public static void main( String[] args){
