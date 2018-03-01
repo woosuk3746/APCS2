@@ -1,0 +1,13 @@
+Woosuk Lee
+APCS2 pd8
+HW11 -- Get On the Bus
+2018-03-01
+
+1. Start from (0,0)
+2. Choose one of the possible paths to take.
+3. Repeat step 2
+	a. if the knight has gone through all the spots, return true
+	b. if the knight cannot complete all the paths (meaning it gets stuck at some point), undo the most recent move and choose a new path.
+	c. if the knight still cannot complete the paths, undo one more move than the number of moves undone previously and repeat step b.
+
+*the starting point is irrelevant because the knight is going to touch every part of the chessboard anyways (verified through experimentation on Netlogo)
