@@ -99,14 +99,14 @@ class TourFinder
      *********************************************/
     public void findTour( int x, int y, int moves ) 
     {
-	delay(100); //slow it down enough to be followable
+	//delay(100); //slow it down enough to be followable
 
 	//if a tour has been completed, stop animation
 	if ( solved ) System.exit(0);
 
 	//primary base case: tour completed
-	if ( moves == sideLength * sideLength ) {
-	    return;
+	if ( moves > sideLength * sideLength ) {
+	    solved = true;
 	}
 	//other base case: stepped off board or onto visited cell
 	if (  board[x][y] != 0  ) {
@@ -117,9 +117,8 @@ class TourFinder
 	else {
 
 	    board[x][y] = moves;
-	    moves = moves + 1;
-
-	    //delay(100); //uncomment to slow down enough to view
+        moves++;
+	    delay(50); //uncomment to slow down enough to view
 
 	    /*======================================
 	      Recursively try to solve (find tour) from 
@@ -130,23 +129,34 @@ class TourFinder
 	      g . . . b
 	      . h . a .
 	      ======================================*/
-
-	    findTour(x+1,y-2,moves);//a
-	    findTour(x+2,y-1,moves);//b
-	    findTour(x+2,y+1,moves);//c
-	    findTour(x+1,y+2,moves);//d
-	    findTour(x-1,y+2,moves);//e
-	    findTour(x-2,y+1,moves);//f
-	    findTour(x-2,y-1,moves);//g
-	    findTour(x-1,y-2,moves);//h 
-	    
-	    
-	    
+        
+        /*
+        findTour(x+1,y-2,moves);//d
+        findTour(x+2,y-1,moves);//c
+        findTour(x+2,y+1,moves);//b
+        findTour(x+1,y+2,moves);//a
+        findTour(x-1,y+2,moves);//h
+        findTour(x-2,y+1,moves);//g
+        findTour(x-2,y-1,moves);//f
+        findTour(x-1,y-2,moves);//e
+        */
+        
+        //code help from William Lu period 2
+        int[] nextX = {x+1, x+2, x+2, x+1, x-1, x-2, x-2,x-1};
+        int[] nextY = {y-2, y-1, y+1, y+2, y+2, y+1, y-1, y-2};
+        
+        for(int i = 0; i < 8 && !solved; i++){
+            findTour(nextX[i],nextY[i],moves);
+        }
+        
+        
 	    //If made it this far, path did not lead to tour, so back up.
-
-	    /* YOUR KODE HERE */
-	    
-     	    System.out.println( this ); //refresh screen
+        if(!solved) board[x][y] = 0;
+        
+        
+        System.out.println( this ); //refresh screen
+        
+        
 	}
     }//end findTour()
 
