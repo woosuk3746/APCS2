@@ -107,6 +107,8 @@ class TourFinder
 	//primary base case: tour completed
 	if ( moves > sideLength * sideLength ) {
 	    solved = true;
+	    System.out.println(this);
+	    return;
 	}
 	//other base case: stepped off board or onto visited cell
 	if (  board[x][y] != 0  ) {
@@ -130,7 +132,7 @@ class TourFinder
 	      . h . a .
 	      ======================================*/
         
-        /*
+        
         findTour(x+1,y-2,moves);//d
         findTour(x+2,y-1,moves);//c
         findTour(x+2,y+1,moves);//b
@@ -139,8 +141,9 @@ class TourFinder
         findTour(x-2,y+1,moves);//g
         findTour(x-2,y-1,moves);//f
         findTour(x-1,y-2,moves);//e
-        */
         
+
+	    /*
         //code help from William Lu period 2
         int[] nextX = {x+1, x+2, x+2, x+1, x-1, x-2, x-2,x-1};
         int[] nextY = {y-2, y-1, y+1, y+2, y+2, y+1, y-1, y-2};
@@ -148,7 +151,7 @@ class TourFinder
         for(int i = 0; i < 8 && !solved; i++){
             findTour(nextX[i],nextY[i],moves);
         }
-        
+	    */
         
 	    //If made it this far, path did not lead to tour, so back up.
         if(!solved) board[x][y] = 0;
