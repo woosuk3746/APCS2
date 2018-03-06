@@ -107,7 +107,7 @@ class TourFinder
 	//primary base case: tour completed
 	if ( moves > sideLength * sideLength ) {
 	    solved = true;
-	    System.out.println(this);
+	    //System.out.println(this);
 	    return;
 	}
 	//other base case: stepped off board or onto visited cell
@@ -119,8 +119,8 @@ class TourFinder
 	else {
 
 	    board[x][y] = moves;
-        moves++;
-	    delay(50); //uncomment to slow down enough to view
+	    //moves++;
+	    //delay(50); //uncomment to slow down enough to view
 
 	    /*======================================
 	      Recursively try to solve (find tour) from 
@@ -133,14 +133,14 @@ class TourFinder
 	      ======================================*/
         
         
-        findTour(x+1,y-2,moves);//d
-        findTour(x+2,y-1,moves);//c
-        findTour(x+2,y+1,moves);//b
-        findTour(x+1,y+2,moves);//a
-        findTour(x-1,y+2,moves);//h
-        findTour(x-2,y+1,moves);//g
-        findTour(x-2,y-1,moves);//f
-        findTour(x-1,y-2,moves);//e
+        findTour(x+1,y-2,moves+1);//d
+        findTour(x+2,y-1,moves+1);//c
+        findTour(x+2,y+1,moves+1);//b
+        findTour(x+1,y+2,moves+1);//a
+        findTour(x-1,y+2,moves+1);//h
+        findTour(x-2,y+1,moves+1);//g
+        findTour(x-2,y-1,moves+1);//f
+        findTour(x-1,y-2,moves+1);//e
         
 
 	    /*
@@ -188,13 +188,13 @@ public class KnightTour
 	System.out.println( tf );
 
 	//for random starting location, use lines below:
-	//int startX = 2 + (int)( n * Math.random() );
-	//int startY = 2 + (int)( n * Math.random() );
-	//tf.findTour( startX, startY, 1 );   // 1 or 0 ?
+	int startX = 2 + (int)( n * Math.random() );
+	int startY = 2 + (int)( n * Math.random() );
+	tf.findTour( startX, startY, 1 );   // 1 or 0 ?
 
 	//for fixed starting location, use line below:
-	tf.findTour( 2, 2, 1 );
-
+	//tf.findTour( 2, 2, 1 );
+	System.out.println(tf);
     }//end main()
 
 }//end class KnightTour
