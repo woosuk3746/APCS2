@@ -1,0 +1,26 @@
+Woosuk Lee
+APCS2 pd 8
+HW14 -- Probing the Depths...
+2018-03-06
+
+Section Uno:
+
+Q1: From any starting position, can an open tour always be found? Explain.
+No, I tested one from my code, and it did not work out. 
+
+Q2: Same, but for closed tour.
+Closed tour is a generalized version of open tour, and because it failed in open tour, it has to fail for closed tour as well.
+
+Q3: How do you explain the increase in execution time as n increases?
+It seems to be exponential because as n increases, the number of possible cases increases exponentially.
+
+Q4: Thoughts on optimization?
+
+
+Section Deux:
+
+State your cleanest algo for finding your way out of a maze.
+1. If on exit, maze is solved. Exit algo.
+2. If not on path, stop recursive case.
+3. Else, mark the location.
+4. Go back to step 1, and repeat the process with other directions.
