@@ -149,11 +149,18 @@ public class Mysterion{
         System.out.println("mysterion(2,5,1,arr12) returns: " + mysterion(2,5,1,arr12));
         System.out.print("arr12 after Mysterion: "); printArr(arr12);
 
-	System.out.println("\n");
+	   System.out.println("\n");
         
         int[] arr13 = {4,7,8,1,2,5};
         System.out.print("arr13 before Mysterion: "); printArr(arr13);
         System.out.println("mysterion(1,3,5,arr13) returns: " + mysterion(1,3,5,arr13));
         System.out.print("arr13 after Mysterion: "); printArr(arr13);
+        
+        System.out.println("\n");
+        
+        int[] arr14 = {7,3,1,5,12};
+        System.out.print("arr14 before Mysterion: "); printArr(arr14);
+        System.out.println("mysterion(0,4,1,arr13) returns: " + mysterion(0,4,1,arr14));
+        System.out.print("arr14 after Mysterion: "); printArr(arr14);
     }
 }
