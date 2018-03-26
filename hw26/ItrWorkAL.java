@@ -38,32 +38,30 @@ public class ItrWorkAL
     //using FOREACH loop
     //returns a list containing the odd numbers in L
     public static List<Integer> oddsA( List<Integer> L ) 
-    { 
-	/*** YOUR IMPLEMENTATION HERE ***/
-	
+    {
+	ArrayList<Integer> retLst = new ArrayList<Integer>();
 	for (Integer i : L){
 	    if(i%2 == 0){
-		L.remove(i);
+		retLst.add(i);
 	    }
 	}
-	return L;
+	return retLst;
     }
 
     //explicitly using an iterator
     //returns a list containing the odd numbers in L
     public static List<Integer> oddsB( List<Integer> L ) 
-    { 
-	
-	
+    {
+	ArrayList<Integer> retLst = new ArrayList<Integer>();
 	Iterator it = L.iterator();
 	while(it.hasNext()){
 	    Integer i = (Integer) it.next();
 	    if(i%2 == 0){
-		L.remove(i);
+		retLst.add(i);
 	    }
 	}
 	
-	return L;
+	return retLst;
     }
 
 
@@ -71,7 +69,13 @@ public class ItrWorkAL
     //modifies L s.t. it contains no evens
     public static void removeEvens( List<Integer> L ) 
     { 
-	/*** YOUR IMPLEMENTATION HERE ***/
+	Iterator it = L.iterator();
+	while(it.hasNext()){
+	    Integer i = (Integer) it.next();
+	    if(i%2==0){
+		it.remove();
+	    }
+	}
     }
 
 
@@ -108,10 +112,11 @@ public class ItrWorkAL
 	System.out.println("\nTesting oddsB...");
 	List<Integer> B = oddsB(L);
 	for( int n : B ) System.out.println(n);
-	/*~~~~~~~~~~~~~~~m~o~v~e~~m~e~~d~o~w~n~~~~~~~~~~~~~~
+	
 	System.out.println("\nTesting removeEvens...");
 	removeEvens(L);
 	for( int n : L ) System.out.println(n);
+	/*~~~~~~~~~~~~~~~m~o~v~e~~m~e~~d~o~w~n~~~~~~~~~~~~~~
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
     }//end main
