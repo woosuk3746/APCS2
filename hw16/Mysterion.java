@@ -160,7 +160,14 @@ public class Mysterion{
         
         int[] arr14 = {7,3,1,5,12};
         System.out.print("arr14 before Mysterion: "); printArr(arr14);
-        System.out.println("mysterion(0,4,1,arr13) returns: " + mysterion(0,4,1,arr14));
+        System.out.println("mysterion(0,4,1,arr14) returns: " + mysterion(0,4,1,arr14));
         System.out.print("arr14 after Mysterion: "); printArr(arr14);
+
+	System.out.println("\n");
+	
+	int[] arr15 = {7,1,5,12,3};
+        System.out.print("arr15 before Mysterion: "); printArr(arr15);
+        System.out.println("mysterion(0,2,0,arr15) returns: " + mysterion(0,2,0,arr15));
+        System.out.print("arr15 after Mysterion: "); printArr(arr15);
     }
 }
