@@ -1,3 +1,7 @@
+//Woosuk Lee
+//APCS2 pd8
+//HW26 -- DeIteratour
+//2018-3-26
 /*****************************************************
  * class ItrWork -- skeleton
  * Allows for familiarization with iterators
