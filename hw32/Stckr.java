@@ -7,9 +7,16 @@ public class Stckr
 {
     public static void main( String[] args )
     {
-	Stack<Z> cakes = new ALStack<Z>();
-	//Stack<Z> cakes = new LLStack<Z>();
-
+	/*
+	Stack cakes = new ALStack();
+	cakes.push("hi");
+	cakes.push("boo");
+	System.out.println(cakes.peek());
+	*/
+	Stack cakes = new LLStack();
+	cakes.push("hi");
+	cakes.push("boo");
+	System.out.println(cakes.peek());
 	//...
 	
     }//end main

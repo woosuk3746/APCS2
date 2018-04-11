@@ -1,10 +1,16 @@
-import java.util.ArrayList;
-public class ALStack implements Stack<String>{
-	private ArrayList _stack;
-	private int _stackSize;
+//Woosuk Lee
+//APCS2 pd8
+//HW32 -- Leon Leonwood Stack
+//2018-04-12 R
+import java.util.*;
 
-	public ALStack(){
-		_stack = new ArrayList<String>();
+public class LLStack implements Stack<String> 
+{
+    private LinkedList<String> _stack;
+    private int _stackSize;
+
+    public LLStack(){
+		_stack = new LinkedList<String>();
 		_stackSize = 0;
 	}
 
