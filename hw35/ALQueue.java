@@ -7,6 +7,15 @@
  * class ALQueue                            *
  * Uses ArrayList to replicate queue        *
  * Implements interface Queue               *
+ ********************************************
+ *    _    _                                *
+ *   (o)--(o)                               *
+ *  /.______.\     RIBBIT                   *
+ *  \________/                              *
+ * ./        \.                             *
+ *( .        , )                            *
+ * \ \_\\//_/ /                             *
+ *  ~~  ~~  ~~                              *
  ********************************************/
  
 import java.util.*;
@@ -39,6 +48,7 @@ public class ALQueue<Frog> implements Queue<Frog>{
     /***************************************************
      * method dequeue()                                *
      * Remove the element at the front of the queue    *
+     * Returns the first element of the queue after    *
      * Runtime: O(n) *Shifting causes linear runtime   *
      ***************************************************/
     public Frog dequeue(){
@@ -57,6 +67,4 @@ public class ALQueue<Frog> implements Queue<Frog>{
 	return _size == 0;
     }
     /*^*******************METHODS*********************^*/
-}
-
-    
+} //end class ALQueue
