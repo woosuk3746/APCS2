@@ -5,8 +5,8 @@
  ******************************************************/
 
 
-public interface Queue<Quasar>{
-
+public interface Queue<Quasar>
+{
     //~~~~~~~~~~~~~~~~~~begin AP subset~~~~~~~~~~~~~~~~~~
     //means of removing an element from collection:
     //Dequeues and returns the first element of the queue.
@@ -22,6 +22,5 @@ public interface Queue<Quasar>{
     //Returns the first element of the queue without dequeuing it.
     public Quasar peekFront();
     //~~~~~~~~~~~~~~~~~~~end AP subset~~~~~~~~~~~~~~~~~~~
-
 
 }//end interface Queue                                                                                           
