@@ -1,3 +1,7 @@
+//Team Soup Nazis - Woosuk Lee and Jackie Li
+//APCS2 pd8
+//HW36 -- Now Let's Consider You Lot at Fake Terry's
+//2018-04-18 W
 /*****************************************************
  * class RQueue
  * A linked-list-based, randomized queue
@@ -24,8 +28,7 @@ public class RQueue<T> implements Queue<T>
   // default constructor creates an empty queue
   public RQueue() 
 	{
-	    _front = null;
-	    _end = null;
+	    _front = new LLNode<T>(null,_end);
 	    _size=0;
 	}//end default constructor
 
@@ -55,10 +58,23 @@ public class RQueue<T> implements Queue<T>
   // assume _queue ! empty
   public T dequeue() 
   {
-      sample();
+        sample();
+        T x = _front.getValue();
+        if(_size==1) _front.setValue(null);
+        else _front = _front.getNext();
+        _size--;
+        return x;
       
   }//end dequeue()
 
+  public T dequeueNoRand(){
+        T x = _front.getValue();
+        if(_size==1) _front.setValue(null);
+        else _front = _front.getNext();
+        _size--;
+        return x;
+      
+  }
 
   public T peekFront() 
   {
@@ -72,25 +88,31 @@ public class RQueue<T> implements Queue<T>
    * ...
    * 
    ******************************************/
-  public void sample () 
-  {
-       int randnum = (int) Math.random() * _size;
-       for(int i = 0; i <= randnum; i++){
-	   _front = _front.getNext();
-       }
-  }//end sample()
+  public void sample () {
+        int rand = (int) Math.random() * _size;
+        while (rand > 0 ) {
+                enqueue(dequeueNoRand());
+                rand--;
+            }
+}//end sample()
 
 
   public boolean isEmpty() 
   {
-
+    return _size==0;
   } //O(?)
-
+  
 
     // print each node, separated by spaces
   public String toString() 
   { 
-
+    LLNode<T> temp = _front;
+    String s = "";
+    for(int i = 0; i < _size; i++){
+        s += temp.getValue() + " ";
+        temp = temp.getNext();
+    }
+    return s.substring(0,s.length()-1);
   }//end toString()
 
 
@@ -98,7 +120,7 @@ public class RQueue<T> implements Queue<T>
   //main method for testing
   public static void main( String[] args )
   {
-    /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
+    
 
       Queue<String> PirateQueue = new RQueue<String>();
 
@@ -109,7 +131,9 @@ public class RQueue<T> implements Queue<T>
       PirateQueue.enqueue("Blackbeard");
       PirateQueue.enqueue("Peter");
       PirateQueue.enqueue("Stuyvesant");
-
+      
+      
+      
       System.out.println("\nnow testing toString()..."); 
       System.out.println( PirateQueue ); //for testing toString()...
 
@@ -123,7 +147,7 @@ public class RQueue<T> implements Queue<T>
 
       System.out.println("\nnow dequeuing fr empty queue..."); 
       System.out.println( PirateQueue.dequeue() );
-
+      /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
       ^~~~~~~~~~~~~~~~AWESOME~~~~~~~~~~~~~~~^*/
 
   }//end main
