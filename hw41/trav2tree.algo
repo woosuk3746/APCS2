@@ -1,0 +1,27 @@
+Woosuk Lee
+APCS2 pd8
+HW41 - A Tree Grows in 251
+2018-04-30 M
+
+The in-order tells the the order from left to right, while the pre-order gives the order from top to bottom.
+Using bars("|"), a thinker can making number of partitions equal to that of the given number of letters.
+First list out the letters from in-order to fill out from left to right. Then use pre-order to list from top to bottom.
+Rearrange and finish the tree.
+EG)
+in-order:  EKDNIOLWG
+pre-order: EGDKINLOW
+E| | | | | | | |
+ | | | | | | | |G
+ | |D| | | | | |
+ |K| | |I| | | |
+ | | |N| | |L| |
+ | | | | |O| |W|
+ | | | | | | | |
+ | | | | | | | |
+E|K|D|N|I|O|L|W|G
+
+Post-order tells whatever is in each subtree.
+     W
+   H   O
+ I    A
+T E  K
