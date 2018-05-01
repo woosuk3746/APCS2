@@ -1,7 +1,9 @@
-//Woosuk Lee
-//APCS2 pd08
+//Wenting Li
+//APCS2 pd01
 //HW #43: BSTs is the Perfect Place for Shade
 //2018-05-02 W
+
+import javax.lang.model.util.ElementScanner6;
 
 /*****************************************************
  * class BST - v1:partial
@@ -125,10 +127,22 @@ public class BST
      * returns pointer to node containing target,
      * or null if target not found
      *****************************************************/
-    TreeNode search( int target )
+    public TreeNode search( int target )
     {
-      /*** YOUR IMPLEMENTATION HERE ***/
+      return search( _root, target );
+    }
+
+    //recursive helper for search()
+    public TreeNode search( TreeNode currNode, int target )
+    {
+      if (currNode.getValue() == target) //base case: if target found, return node containing target
+        return currNode; 
+      if (currNode == null) //base case: if target not found, return null
         return null;
+      if (target < currNode.getValue()) //compare target and recursively search LEFT or RIGHT subtree
+        return search( currNode.getLeft(), target );
+      else 
+        return search( currNode.getRight(), target );
     }
 
 
@@ -139,21 +153,22 @@ public class BST
      *****************************************************/
     public int height()
     {
-        return height(_root);
+      return height( _root );
     }
 
-    public int height( TreeNode t ){
-        if(t==null) return -1; //null is -1
-        else if(t.getLeft() == null && t.getRight() == null) return 0; //the very bottom has height 0
-        else{
-            if(height(t.getLeft()) > height(t.getRight())){
-                return height(t.getLeft()) + 1; //if the height of the left is bigger, return the height of the left and increment
-            }
-            else{
-                return height(t.getRight()) + 1; //else return the height of the right and increment
-            }
-        }
+    //recursive helper for height()
+    public int height( TreeNode currNode )
+    {
+      if ( currNode == null) //base case: if node is empty, return height of -1 (1 lower than leaf)
+        return -1;
+      else if ( currNode.getLeft() == null && currNode.getRight() == null ) //base case: if node is a leaf, return height of 0
+        return 0;
+      else if ( height(currNode.getLeft()) > height(currNode.getRight()) ) //compare height of LEFT and RIGHT subtrees and return greater height + 1
+        return height(currNode.getLeft()) + 1;
+      else 
+        return height(currNode.getRight()) + 1;
     }
+
 
     /*****************************************************
      * int numLeaves()
@@ -161,14 +176,21 @@ public class BST
      *****************************************************/
     public int numLeaves()
     {
-      return numLeaves(_root);
+      return numLeaves( _root );
     }
 
-    public int numLeaves(TreeNode t){
-        if(t==null) return 0; //null treenode has no leaves
-        else if ( t.getLeft() == null && t.getRight() == null ) return 1; //the very bottom returns 1
-        else return numLeaves(t.getLeft())+ numLeaves(t.getRight()); //recursively add number of leaves from left and right
+    //recursive helper for numLeaves()
+    public int numLeaves( TreeNode currNode )
+    {
+      if ( currNode == null ) ///base case: if node is empty, not a leaf and return 0
+        return 0;
+      else if ( currNode.getLeft() == null && currNode.getRight() == null ) //base case: if node is leaf, return 1
+        return 1;
+      else
+        return numLeaves(currNode.getLeft()) 
+             + numLeaves(currNode.getRight()); //recursively return sum of leaves in LEFT and RIGHT subtrees
     }
+
 
 
   //main method for testing
@@ -176,15 +198,20 @@ public class BST
   {
     BST arbol = new BST();
 
-    //PROTIP: sketch state of tree after each insertion
-    //        ...BEFORE executing these.
+    /* BST arbol after the following insertions 
+           4
+         /   \
+        2     5
+       / \     \
+      1   3     6   */
+
     arbol.insert( 4 );
     arbol.insert( 2 );
     arbol.insert( 5 );
     arbol.insert( 6 );
     arbol.insert( 1 );
     arbol.insert( 3 );
-      
+
     System.out.println( "\n-----------------------------");
     System.out.println( "pre-order traversal:" );
     arbol.preOrderTrav();
@@ -198,15 +225,14 @@ public class BST
     arbol.postOrderTrav();
 
     System.out.println( "\n-----------------------------");
-    
-    System.out.println( "\n-----------------------------");
-    System.out.println( "height:" );
-    System.out.println(arbol.height());
-      
-    System.out.println( "\n-----------------------------");
     System.out.println( "number of leaves:" );
-    System.out.println(arbol.numLeaves());
+    System.out.print( arbol.numLeaves() ); //3
+
+    System.out.println( "\n-----------------------------");
+    System.out.println( "height of tree:" );
+    System.out.println( arbol.height() ); //2
     /*~~~~~~~~~~~~move~me~down~~~~~~~~~~~~~~~~~~~~~~
+
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }
 
