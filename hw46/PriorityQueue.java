@@ -1,7 +1,7 @@
 public interface PriorityQueue{
   
   //adds the new element
-  public void add(String obj);
+  public void add(String str);
     
   //checks for emptiness
   public boolean isEmpty();
